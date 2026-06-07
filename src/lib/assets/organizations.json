@@ -1,0 +1,176 @@
+[
+  {
+    "id": 1,
+    "type": "องค์กรนิสิต",
+    "nameTh": "องค์การบริหารนิสิต มก. ศรีราชา",
+    "nameEn": "KU Sriracha Student Council",
+    "descTh": "เป็นองค์กรหลักที่ดูแลภาพรวมกิจกรรมนิสิต พร้อมเป็นตัวแทนในการประสานงานและขับเคลื่อนกิจกรรมของมหาวิทยาลัย",
+    "descEn": "The main student organization that oversees student activities and represents students in university initiatives.",
+    "banner": "student-council-banner.svg",
+    "logo": "student-council-logo.svg"
+  },
+  {
+    "id": 2,
+    "type": "องค์กรนิสิต",
+    "nameTh": "สภานิสิต มหาวิทยาลัยเกษตรศาสตร์",
+    "nameEn": "KU Student Senate",
+    "descTh": "รับฟังปัญหาและข้อเสนอแนะจากนิสิต เพื่อส่งต่อไปยังมหาวิทยาลัยและหน่วยงานที่เกี่ยวข้อง",
+    "descEn": "Collects student concerns and suggestions to relay to the university and related offices.",
+    "banner": "student-senate-banner.svg",
+    "logo": "student-senate-logo.svg"
+  },
+  {
+    "id": 3,
+    "type": "สโมสร",
+    "nameTh": "สโมสรวิศวกรรมศาสตร์",
+    "nameEn": "Engineering Club",
+    "descTh": "สนับสนุนกิจกรรมด้านวิศวกรรมและการพัฒนาทักษะทางวิชาชีพสำหรับนิสิต",
+    "descEn": "Supports engineering activities and professional skill development for students.",
+    "banner": "engineering-club-banner.svg",
+    "logo": "engineering-club-logo.svg"
+  },
+  {
+    "id": 4,
+    "type": "สโมสร",
+    "nameTh": "สโมสรวิทยาศาสตร์ ศรีราชา",
+    "nameEn": "Science Club Sriracha",
+    "descTh": "ส่งเสริมความสนใจและความรู้ทางด้านวิทยาศาสตร์ผ่านกิจกรรมและกิจกรรมวิชาการ",
+    "descEn": "Promotes interest and knowledge in science through activities and academic events.",
+    "banner": "science-club-banner.svg",
+    "logo": "science-club-logo.svg"
+  },
+  {
+    "id": 5,
+    "type": "สโมสร",
+    "nameTh": "สโมสรวิทยาการจัดการ",
+    "nameEn": "Management Club",
+    "descTh": "พัฒนาทักษะความเป็นผู้นำและความรู้ทางการจัดการในวงการนักศึกษา",
+    "descEn": "Develops leadership and management skills for student life and future careers.",
+    "banner": "management-club-banner.svg",
+    "logo": "management-club-logo.svg"
+  },
+  {
+    "id": 6,
+    "type": "สโมสร",
+    "nameTh": "สโมสรพาณิชยนาวี นานาชาติ",
+    "nameEn": "International Maritime Club",
+    "descTh": "รวบรวมความสนใจด้านการเดินเรือและธุรกิจการขนส่งทางทะเล",
+    "descEn": "Brings together interests in maritime studies and international shipping business.",
+    "banner": "maritime-club-banner.svg",
+    "logo": "maritime-club-logo.svg"
+  },
+  {
+    "id": 7,
+    "type": "สโมสร",
+    "nameTh": "สโมสรเศรษฐศาสตร์",
+    "nameEn": "Economics Club",
+    "descTh": "ส่งเสริมความเข้าใจด้านเศรษฐศาสตร์และการวางแผนการเงินสำหรับนิสิต",
+    "descEn": "Promotes understanding of economics and financial planning for students.",
+    "banner": "economics-club-banner.svg",
+    "logo": "economics-club-logo.svg"
+  },
+  {
+    "id": 8,
+    "type": "ชมรม",
+    "nameTh": "ชมรมอาสาพัฒนา",
+    "nameEn": "Volunteer Club",
+    "descTh": "จัดกิจกรรมจิตอาสาและพัฒนาชุมชนเพื่อสร้างความรับผิดชอบต่อสังคม",
+    "descEn": "Organizes volunteer and community service activities to build social responsibility.",
+    "banner": "volunteer-club-banner.svg",
+    "logo": "volunteer-club-logo.svg"
+  },
+  {
+    "id": 9,
+    "type": "ชมรม",
+    "nameTh": "ชมรมฟุตบอล",
+    "nameEn": "Football Club",
+    "descTh": "ฝึกซ้อมและร่วมแข่งขันกีฬาฟุตบอลเพื่อเสริมสุขภาพและความสามัคคี",
+    "descEn": "Practices and competes in football to build health, teamwork, and sportsmanship.",
+    "banner": "football-club-banner.svg",
+    "logo": "football-club-logo.svg"
+  },
+  {
+    "id": 10,
+    "type": "ชมรม",
+    "nameTh": "ชมรมฟิตเนส",
+    "nameEn": "Fitness Club",
+    "descTh": "ส่งเสริมการออกกำลังกายและการดูแลสุขภาพผ่านกิจกรรมและการฝึกอบรม",
+    "descEn": "Promotes exercise and healthy living through activities and training sessions.",
+    "banner": "fitness-club-banner.svg",
+    "logo": "fitness-club-logo.svg"
+  },
+  {
+    "id": 11,
+    "type": "ชมรม",
+    "nameTh": "ชมรมไซเบอร์กีก",
+    "nameEn": "Cyber Geek Club",
+    "descTh": "กิจกรรมด้านเทคโนโลยีดิจิทัลและการพัฒนาทักษะทางคอมพิวเตอร์สำหรับนิสิต",
+    "descEn": "Promotes digital technology skills and computer development for students.",
+    "banner": "Cyber-Geek-Club-Banner.png",
+    "logo": "Cyber-Geek-Club.jpg",
+    "contacts": {
+      "Instagram": "https://www.instagram.com/cybergeekclub.src/",
+      "Facebook": "https://www.facebook.com/"
+    }
+  },
+  {
+    "id": 12,
+    "type": "ชมรม",
+    "nameTh": "ชมรมสตาร์ทอัพ",
+    "nameEn": "Startup Club",
+    "descTh": "รวบรวมแนวคิดธุรกิจและการเรียนรู้การสร้างไอเดียเพื่อสตาร์ทอัพ",
+    "descEn": "Gathers business ideas and startup learning experiences for students.",
+    "banner": "startup-club-banner.svg",
+    "logo": "startup-club-logo.svg"
+  },
+  {
+    "id": 13,
+    "type": "ชมรม",
+    "nameTh": "ชมรมดนตรีไทย",
+    "nameEn": "Thai Music Club",
+    "descTh": "ฝึกซ้อมและแสดงดนตรีไทยเพื่ออนุรักษ์วัฒนธรรมและสร้างความสุขสนุก",
+    "descEn": "Practices and performs Thai music to preserve culture and create joyful experiences.",
+    "banner": "thai-music-club-banner.svg",
+    "logo": "thai-music-club-logo.svg"
+  },
+  {
+    "id": 14,
+    "type": "ชมรม",
+    "nameTh": "ชมรมดนตรีสากล",
+    "nameEn": "International Music Club",
+    "descTh": "รวบรวมความสามารถทางดนตรีสากลและจัดกิจกรรมแสดงบนเวทีมหาวิทยาลัย",
+    "descEn": "Brings together international music talent and organizes campus performances.",
+    "banner": "international-music-club-banner.svg",
+    "logo": "international-music-club-logo.svg"
+  },
+  {
+    "id": 15,
+    "type": "ชมรม",
+    "nameTh": "ชมรมดีแดนซ์",
+    "nameEn": "Dance Club",
+    "descTh": "ฝึกท่าเต้นและจัดการแสดงเพื่อส่งเสริมความคิดสร้างสรรค์และความร่วมมือ",
+    "descEn": "Practices dance routines and performs to encourage creativity and teamwork.",
+    "banner": "dance-club-banner.svg",
+    "logo": "dance-club-logo.svg"
+  },
+  {
+    "id": 16,
+    "type": "ชมรม",
+    "nameTh": "ชมรมผู้นำเชียร์",
+    "nameEn": "Cheerleader Club",
+    "descTh": "สร้างพลังบวกและแรงบันดาลใจในกิจกรรมของมหาวิทยาลัยด้วยการเชียร์",
+    "descEn": "Creates energy and motivation in university events through cheering activities.",
+    "banner": "cheerleader-club-banner.svg",
+    "logo": "cheerleader-club-logo.svg"
+  },
+  {
+    "id": 17,
+    "type": "ชมรม",
+    "nameTh": "ชมรมคริสเตียน",
+    "nameEn": "Christian Club",
+    "descTh": "รวบรวมผู้ที่มีความสนใจด้านศรัทธาและการพัฒนาจิตใจร่วมกัน",
+    "descEn": "Brings together students interested in faith and personal spiritual growth.",
+    "banner": "christian-club-banner.svg",
+    "logo": "christian-club-logo.svg"
+  }
+]

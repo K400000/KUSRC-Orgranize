@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#4a2c16" />
+      <stop offset="100%" stop-color="#0f2d1c" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#g)" />
+  <rect x="30" y="30" width="740" height="360" rx="32" fill="rgba(255,255,255,0.08)" stroke="#f0b37d" stroke-width="4" />
+  <circle cx="670" cy="120" r="90" fill="#f0b37d" fill-opacity="0.12" />
+  <text x="80" y="180" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">สโมสรเศรษฐศา</text>
+  <text x="80" y="240" fill="#d9f6e6" font-family="Arial, Helvetica, sans-serif" font-size="22">Kasetsart University Sriracha Campus</text>
+</svg>

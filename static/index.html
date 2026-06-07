@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>องค์กรนิสิต — Kasetsart University Sriracha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ku-darkest:  #0a2218;
+    --ku-dark:     #133526;
+    --ku-forest:   #1d5235;
+    --ku-green:    #286644;
+    --ku-mid:      #3a8a5e;
+    --ku-light:    #6ab98a;
+    --ku-pale:     #e8f5ee;
+    --ku-paler:    #f4fbf6;
+    --ku-gold:     #c8a84b;
+    --ku-gold-lt:  #e8cc7a;
+    --white:       #ffffff;
+    --text-dark:   #0f2d1c;
+    --text-mid:    #2d5a3d;
+    --text-soft:   #5a8a6a;
+    --text-muted:  #8aad98;
+    --border:      #d0e8d8;
+    --border-dark: #b0d0be;
+    --card-shadow: 0 1px 3px rgba(10,34,24,.06), 0 4px 16px rgba(10,34,24,.08);
+    --card-shadow-hover: 0 8px 32px rgba(10,34,24,.16), 0 2px 8px rgba(10,34,24,.08);
+    --radius: 16px;
+    --radius-pill: 100px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: 'Sarabun', sans-serif;
+    background: var(--ku-paler);
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ══════════════════════════════
+     NAV — Desktop
+  ══════════════════════════════ */
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    height: 64px;
+    background: rgba(10,34,24,.97);
+    backdrop-filter: blur(20px) saturate(1.5);
+    border-bottom: 1px solid rgba(200,168,75,.15);
+    display: flex;
+    align-items: center;
+    padding: 0 clamp(1.2rem, 5vw, 2.8rem);
+    gap: 1rem;
+  }
+
+  /* Brand block */
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-logo-img {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    object-fit: contain;
+    background: rgba(255,255,255,.06);
+    padding: 2px;
+    flex-shrink: 0;
+  }
+  .nav-text-group { line-height: 1.15; }
+  .nav-university {
+    display: block;
+    color: #fff;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .01em;
+    white-space: nowrap;
+  }
+  .nav-campus {
+    display: block;
+    color: rgba(255,255,255,.4);
+    font-size: .63rem;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* Separator + label */
+  .nav-sep {
+    width: 1px;
+    height: 28px;
+    background: rgba(255,255,255,.12);
+    flex-shrink: 0;
+  }
+  .nav-section-label {
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ku-gold);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .nav-spacer { flex: 1; }
+
+  /* Lang switcher */
+  .lang-switch {
+    display: flex;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .lang-btn {
+    padding: .35rem .75rem;
+    font-family: 'Sarabun', sans-serif;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: rgba(255,255,255,.45);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all .18s;
+    line-height: 1;
+  }
+  .lang-btn.active {
+    background: var(--ku-gold);
+    color: var(--ku-darkest);
+    border-radius: var(--radius-pill);
+  }
+  .lang-btn:not(.active):hover { color: rgba(255,255,255,.8); }
+
+  /* ══════════════════════════════
+     NAV — Mobile (≤ 560px)
+     Centred logo only
+  ══════════════════════════════ */
+  @media (max-width: 560px) {
+    nav {
+      justify-content: center;
+      padding: 0 1rem;
+      height: 56px;
+      position: relative;   /* anchor for absolute lang btn */
+    }
+
+    .nav-brand {
+      flex-direction: column;
+      align-items: center;
+      gap: .2rem;
+    }
+    .nav-logo-img { width: 30px; height: 30px; }
+    .nav-university { font-size: .72rem; text-align: center; }
+    .nav-campus { font-size: .58rem; text-align: center; }
+
+    /* hide extras */
+    .nav-sep,
+    .nav-section-label,
+    .nav-spacer { display: none; }
+
+    /* lang button floats to right edge */
+    .lang-switch {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .lang-btn { padding: .3rem .6rem; font-size: .7rem; }
+  }
+
+  /* ══════════════════════════════
+     HERO
+  ══════════════════════════════ */
+  .hero {
+    background: linear-gradient(160deg, var(--ku-darkest) 0%, var(--ku-forest) 60%, var(--ku-green) 100%);
+    padding: clamp(3.5rem,9vw,5.5rem) clamp(1rem,5vw,2.5rem) clamp(2.5rem,7vw,4rem);
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,.022) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,.022) 40px);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    position: relative;
+    font-size: .68rem; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ku-gold);
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    position: relative;
+    font-size: clamp(1.9rem, 5vw, 3rem);
+    font-weight: 800; color: #fff; line-height: 1.15;
+    letter-spacing: -.01em; margin-bottom: .9rem;
+  }
+  .hero-sub {
+    position: relative;
+    font-size: clamp(.88rem, 2vw, 1rem);
+    color: rgba(255,255,255,.5);
+    max-width: 420px; line-height: 1.75;
+    margin-bottom: 2.4rem;
+  }
+
+  /* Search */
+  .search-container { position: relative; width: 100%; max-width: 480px; }
+  .search-box {
+    width: 100%; height: 52px;
+    background: rgba(255,255,255,.1);
+    border: 1.5px solid rgba(255,255,255,.18);
+    border-radius: var(--radius-pill);
+    padding: 0 1.25rem 0 3.2rem;
+    color: #fff;
+    font-family: 'Sarabun', sans-serif; font-size: .95rem;
+    outline: none;
+    transition: background .2s, border-color .2s, box-shadow .2s;
+    -webkit-appearance: none;
+  }
+  .search-box::placeholder { color: rgba(255,255,255,.35); }
+  .search-box:focus {
+    background: rgba(255,255,255,.15);
+    border-color: rgba(200,168,75,.7);
+    box-shadow: 0 0 0 3px rgba(200,168,75,.14);
+  }
+  .search-icon-wrap {
+    position: absolute; left: 1.05rem; top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; display: flex; align-items: center;
+  }
+  .search-icon-wrap svg { width: 18px; height: 18px; stroke: rgba(255,255,255,.4); }
+
+  /* ══════════════════════════════
+     CONTENT
+  ══════════════════════════════ */
+  .content {
+    max-width: 1100px; margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 2rem);
+  }
+
+  .toolbar {
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap;
+    gap: .75rem;
+    padding: 1.8rem 0 1.2rem;
+  }
+  .filters { display: flex; gap: .5rem; flex-wrap: wrap; }
+  .filter-btn {
+    height: 36px; padding: 0 1.1rem;
+    border-radius: var(--radius-pill);
+    border: 1.5px solid var(--border-dark);
+    background: var(--white);
+    color: var(--text-soft);
+    font-family: 'Sarabun', sans-serif; font-size: .82rem; font-weight: 600;
+    cursor: pointer; transition: all .18s; white-space: nowrap;
+  }
+  .filter-btn:hover { border-color: var(--ku-mid); color: var(--ku-forest); background: var(--ku-pale); }
+  .filter-btn.active {
+    background: var(--ku-forest); border-color: var(--ku-forest); color: #fff;
+    box-shadow: 0 2px 8px rgba(29,82,53,.25);
+  }
+  .result-count { font-size: .82rem; color: var(--text-muted); font-weight: 500; white-space: nowrap; }
+  .result-count b { color: var(--text-mid); }
+
+  /* ── GRID ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: clamp(1rem, 2.5vw, 1.5rem);
+    padding-bottom: clamp(3rem, 8vw, 5rem);
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+    display: flex; flex-direction: column;
+    transition: transform .28s cubic-bezier(.34,1.4,.64,1), box-shadow .28s;
+    animation: rise .45s ease both;
+  }
+  .card:hover { transform: translateY(-5px); box-shadow: var(--card-shadow-hover); }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .card:nth-child(1){animation-delay:.04s}.card:nth-child(2){animation-delay:.08s}
+  .card:nth-child(3){animation-delay:.12s}.card:nth-child(4){animation-delay:.16s}
+  .card:nth-child(5){animation-delay:.20s}.card:nth-child(6){animation-delay:.24s}
+
+  .card-banner {
+    position: relative; height: 150px; overflow: hidden;
+    background: var(--ku-dark);
+  }
+  .card-banner img.banner-img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform .5s ease;
+  }
+  .card:hover .banner-img { transform: scale(1.05); }
+  .banner-scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(10,34,24,0) 50%, rgba(10,34,24,.55) 100%);
+  }
+  .card-logo {
+    position: absolute; bottom: -20px; left: 1.1rem;
+    width: 52px; height: 52px; border-radius: 12px;
+    border: 2.5px solid var(--white); overflow: hidden;
+    background: var(--ku-dark);
+    box-shadow: 0 2px 10px rgba(0,0,0,.18);
+  }
+  .card-logo img { width: 100%; height: 100%; object-fit: contain; }
+  .type-badge {
+    position: absolute; top: .7rem; right: .7rem;
+    padding: .28rem .7rem; border-radius: var(--radius-pill);
+    font-size: .68rem; font-weight: 700;
+    letter-spacing: .05em; text-transform: uppercase;
+    backdrop-filter: blur(8px);
+  }
+  .badge-org   { background: rgba(10,34,24,.72);  color: #9fe8be; border: 1px solid rgba(159,232,190,.25); }
+  .badge-club  { background: rgba(180,130,0,.75); color: #ffeea0; border: 1px solid rgba(255,238,160,.25); }
+  .badge-assoc { background: rgba(20,60,130,.72); color: #b8d4ff; border: 1px solid rgba(184,212,255,.25); }
+
+  .card-body { padding: 1.8rem 1.2rem 0; flex: 1; display: flex; flex-direction: column; gap: .45rem; }
+  .card-name { font-size: .97rem; font-weight: 700; color: var(--text-dark); line-height: 1.35; }
+  .card-desc {
+    font-size: .81rem; color: var(--text-soft); line-height: 1.65;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden; flex: 1;
+  }
+
+  .card-footer { padding: 1rem 1.2rem 1.2rem; }
+  .btn-detail {
+    display: flex; align-items: center; justify-content: center; gap: .45rem;
+    width: 100%; height: 40px; border-radius: var(--radius-pill);
+    background: var(--ku-paler); border: 1.5px solid var(--border-dark);
+    color: var(--ku-forest);
+    font-family: 'Sarabun', sans-serif; font-size: .84rem; font-weight: 700;
+    cursor: pointer; transition: all .2s;
+  }
+  .btn-detail:hover { background: var(--ku-forest); border-color: var(--ku-forest); color: #fff; }
+  .btn-detail svg { width: 14px; height: 14px; stroke: currentColor; flex-shrink: 0; transition: transform .2s; }
+  .btn-detail:hover svg { transform: translateX(3px); }
+
+  /* Empty */
+  .empty {
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    gap: .75rem; padding: 5rem 2rem; text-align: center; grid-column: 1/-1;
+  }
+  .empty.show { display: flex; }
+  .empty-icon { font-size: 2.5rem; opacity: .35; }
+  .empty-text { color: var(--text-muted); font-size: .92rem; }
+
+  /* Pagination */
+  .pagination { display: flex; justify-content: center; align-items: center; gap: .4rem; padding: 0 1rem 4rem; }
+  .pg-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1.5px solid var(--border-dark); background: var(--white); color: var(--text-soft);
+    font-family: 'Sarabun', sans-serif; font-size: .85rem; font-weight: 600;
+    cursor: pointer; transition: all .18s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pg-btn:hover { border-color: var(--ku-mid); color: var(--ku-forest); }
+  .pg-btn.active { background: var(--ku-forest); border-color: var(--ku-forest); color: #fff; box-shadow: 0 2px 8px rgba(29,82,53,.3); }
+
+  /* Footer */
+  footer {
+    background: var(--ku-darkest);
+    border-top: 1px solid rgba(200,168,75,.15);
+    padding: 1.6rem clamp(1rem,5vw,2.5rem);
+    text-align: center;
+  }
+  footer p { font-size: .78rem; color: rgba(255,255,255,.35); line-height: 1.7; }
+  footer a { color: var(--ku-gold); text-decoration: none; font-weight: 600; }
+  footer a:hover { color: var(--ku-gold-lt); }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-brand" href="#">
+    <img class="nav-logo-img"
+         src="https://upload.wikimedia.org/wikipedia/th/thumb/1/11/Ku-logo.png/240px-Ku-logo.png"
+         alt="KU Logo"
+         on:error={(event) => { event.currentTarget.src = "https://placehold.co/36x36/1d5235/6ab98a?text=KU"; }}>
+    <div class="nav-text-group">
+      <b class="nav-university">Kasetsart University</b>
+      <small class="nav-campus">Sriracha Campus</small>
+    </div>
+  </a>
+
+  <div class="nav-sep"></div>
+  <span class="nav-section-label" data-th="องค์กรนิสิต" data-en="Student Organizations">องค์กรนิสิต</span>
+
+  <div class="nav-spacer"></div>
+
+  <!-- Language switcher -->
+  <div class="lang-switch">
+    <button class="lang-btn active" id="btnTH" on:click={() => setLang('th')}>TH</button>
+    <button class="lang-btn"        id="btnEN" on:click={() => setLang('en')}>EN</button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-eyebrow">Kasetsart University · Sriracha Campus</div>
+  <h1 data-th="ค้นหาองค์กร" data-en="Find Organizations">ค้นหาองค์กร</h1>
+  <p class="hero-sub"
+     data-th="ศูนย์รวมองค์กร สโมสร และชมรมนิสิต มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตศรีราชา"
+     data-en="Directory of student organizations, clubs, and associations at Kasetsart University Sriracha Campus">
+    ศูนย์รวมองค์กร สโมสร และชมรมนิสิต มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตศรีราชา
+  </p>
+
+  <div class="search-container">
+    <div class="search-icon-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </div>
+    <input class="search-box" id="searchInput" type="search"
+           placeholder="ค้นหาชื่อองค์กร หรือประเภท..."
+           autocomplete="off" on:input={filterCards}>
+  </div>
+</section>
+
+<!-- ── CONTENT ── -->
+<div class="content">
+  <div class="toolbar">
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-f="all"          data-th="ทั้งหมด"       data-en="All"           on:click={(event) => setFilter(event.currentTarget)}>ทั้งหมด</button>
+      <button class="filter-btn"        data-f="องค์กรนิสิต" data-th="องค์กรนิสิต"   data-en="Student Org"   on:click={(event) => setFilter(event.currentTarget)}>องค์กรนิสิต</button>
+      <button class="filter-btn"        data-f="สโมสร"       data-th="สโมสร"          data-en="Council"       on:click={(event) => setFilter(event.currentTarget)}>สโมสร</button>
+      <button class="filter-btn"        data-f="ชมรม"        data-th="ชมรม"           data-en="Club"          on:click={(event) => setFilter(event.currentTarget)}>ชมรม</button>
+    </div>
+    <span class="result-count" id="resultCount"></span>
+  </div>
+
+  <div class="grid" id="cardGrid">
+
+    <!-- Card 1 -->
+    <div class="card" data-type="องค์กรนิสิต"
+         data-name-th="องค์การบริหารนิสิต มก. ศรีราชา" data-name-en="KU Sriracha Student Council"
+         data-desc-th="ดูแลภาพรวมกิจกรรมนิสิต เป็นตัวแทนในการประสานและขับเคลื่อนกิจกรรมทั้งมหาวิทยาลัย"
+         data-desc-en="Oversees all student activities and acts as the representative body for students across the university.">
+      <div class="card-banner">
+        <img class="banner-img" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80" alt="" on:error={(event) => { event.currentTarget.parentElement?.style.setProperty("background", "#1d5235"); }}>
+        <div class="banner-scrim"></div>
+        <div class="card-logo"><img src="https://upload.wikimedia.org/wikipedia/th/thumb/1/11/Ku-logo.png/240px-Ku-logo.png" alt="logo"></div>
+        <span class="type-badge badge-org" data-th="องค์กรนิสิต" data-en="Student Org">องค์กรนิสิต</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">องค์การบริหารนิสิต มก. ศรีราชา</div>
+        <div class="card-desc">ดูแลภาพรวมกิจกรรมนิสิต เป็นตัวแทนในการประสานและขับเคลื่อนกิจกรรมทั้งมหาวิทยาลัย</div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-detail" data-th="ดูรายละเอียด" data-en="View Details" on:click={(event) => alert(event.currentTarget.closest('.card')?.querySelector('.card-name')?.textContent ?? "")}>
+          ดูรายละเอียด
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" data-type="สโมสร"
+         data-name-th="สภานิสิต มหาวิทยาลัยเกษตรศาสตร์" data-name-en="KU Student Senate"
+         data-desc-th="คอยรับฟังปัญหาและข้อเสนอแนะจากนิสิต เพื่อนำไปยื่นต่อมหาวิทยาลัยและหน่วยงานที่เกี่ยวข้อง"
+         data-desc-en="Gathers student feedback and issues, then presents them to the university and relevant departments.">
+      <div class="card-banner">
+        <img class="banner-img" src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=80" alt="" on:error={(event) => { event.currentTarget.parentElement?.style.setProperty("background", "#1d5235"); }}>
+        <div class="banner-scrim"></div>
+        <div class="card-logo"><img src="https://upload.wikimedia.org/wikipedia/th/thumb/1/11/Ku-logo.png/240px-Ku-logo.png" alt="logo"></div>
+        <span class="type-badge badge-assoc" data-th="สโมสร" data-en="Council">สโมสร</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">สภานิสิต มหาวิทยาลัยเกษตรศาสตร์</div>
+        <div class="card-desc">คอยรับฟังปัญหาและข้อเสนอแนะจากนิสิต เพื่อนำไปยื่นต่อมหาวิทยาลัยและหน่วยงานที่เกี่ยวข้อง</div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-detail" data-th="ดูรายละเอียด" data-en="View Details" on:click={(event) => alert(event.currentTarget.closest('.card')?.querySelector('.card-name')?.textContent ?? "")}>
+          ดูรายละเอียด
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card" data-type="ชมรม"
+         data-name-th="Cyber Geek Club" data-name-en="Cyber Geek Club"
+         data-desc-th="ชมรมเทคโนโลยีสารสนเทศ พัฒนาทักษะด้าน Coding, Cybersecurity และ AI สำหรับนิสิต"
+         data-desc-en="An IT club focused on Coding, Cybersecurity, and AI skill development for students.">
+      <div class="card-banner">
+        <img class="banner-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" alt="" on:error={(event) => { event.currentTarget.parentElement?.style.setProperty("background", "#0a2218"); }}>
+        <div class="banner-scrim"></div>
+        <div class="card-logo" style="background:#0a2218;"><img src="https://upload.wikimedia.org/wikipedia/th/thumb/1/11/Ku-logo.png/240px-Ku-logo.png" alt="logo"></div>
+        <span class="type-badge badge-club" data-th="ชมรม" data-en="Club">ชมรม</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Cyber Geek Club</div>
+        <div class="card-desc">ชมรมเทคโนโลยีสารสนเทศ พัฒนาทักษะด้าน Coding, Cybersecurity และ AI สำหรับนิสิต</div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-detail" data-th="ดูรายละเอียด" data-en="View Details" on:click={(event) => alert(event.currentTarget.closest('.card')?.querySelector('.card-name')?.textContent ?? "")}>
+          ดูรายละเอียด
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card" data-type="ชมรม"
+         data-name-th="ชมรมฟุตบอล KU Sriracha" data-name-en="KU Sriracha Football Club"
+         data-desc-th="ชมรมกีฬาฟุตบอลสำหรับนิสิตที่รักการเล่นกีฬา ฝึกซ้อมสม่ำเสมอและร่วมแข่งขันระดับมหาวิทยาลัย"
+         data-desc-en="A football club for sports-loving students with regular practice sessions and inter-university competitions.">
+      <div class="card-banner">
+        <img class="banner-img" src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?w=600&q=80" alt="" on:error={(event) => { event.currentTarget.parentElement?.style.setProperty("background", "#1a3060"); }}>
+        <div class="banner-scrim"></div>
+        <div class="card-logo"><img src="https://upload.wikimedia.org/wikipedia/th/thumb/1/11/Ku-logo.png/240px-Ku-logo.png" alt="logo"></div>
+        <span class="type-badge badge-club" data-th="ชมรม" data-en="Club">ชมรม</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">ชมรมฟุตบอล KU Sriracha</div>
+        <div class="card-desc">ชมรมกีฬาฟุตบอลสำหรับนิสิตที่รักการเล่นกีฬา ฝึกซ้อมสม่ำเสมอและร่วมแข่งขันระดับมหาวิทยาลัย</div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-detail" data-th="ดูรายละเอียด" data-en="View Details" on:click={(event) => alert(event.currentTarget.closest('.card')?.querySelector('.card-name')?.textContent ?? "")}>
+          ดูรายละเอียด
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card" data-type="ชมรม"
+         data-name-th="ชมรมดนตรีสากล" data-name-en="International Music Club"
+         data-desc-th="รวมตัวนักดนตรีจากทุกคณะ ฝึกซ้อมและแสดงในงานสำคัญของมหาวิทยาลัยตลอดปีการศึกษา"
+         data-desc-en="Brings together musicians from all faculties to practice and perform at major university events throughout the year.">
+      <div class="card-banner">
+        <img class="banner-img" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80" alt="" on:error={(event) => { event.currentTarget.parentElement?.style.setProperty("background", "#1d5235"); }}>
+        <div class="banner-scrim"></div>
+        <div class="card-logo"><img src="https://upload.wikimedia.org/wikipedia/th/thumb/1/11/Ku-logo.png/240px-Ku-logo.png" alt="logo"></div>
+        <span class="type-badge badge-club" data-th="ชมรม" data-en="Club">ชมรม</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">ชมรมดนตรีสากล</div>
+        <div class="card-desc">รวมตัวนักดนตรีจากทุกคณะ ฝึกซ้อมและแสดงในงานสำคัญของมหาวิทยาลัยตลอดปีการศึกษา</div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-detail" data-th="ดูรายละเอียด" data-en="View Details" on:click={(event) => alert(event.currentTarget.closest('.card')?.querySelector('.card-name')?.textContent ?? "")}>
+          ดูรายละเอียด
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card" data-type="องค์กรนิสิต"
+         data-name-th="ชมรมอาสาพัฒนา KU Sriracha" data-name-en="KU Sriracha Volunteer Club"
+         data-desc-th="จัดกิจกรรมจิตอาสาและพัฒนาชุมชน ส่งเสริมจิตสำนึกเพื่อสังคมในหมู่นิสิต"
+         data-desc-en="Organizes volunteer and community development activities to foster a spirit of social responsibility among students.">
+      <div class="card-banner">
+        <img class="banner-img" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80" alt="" on:error={(event) => { event.currentTarget.parentElement?.style.setProperty("background", "#1d5235"); }}>
+        <div class="banner-scrim"></div>
+        <div class="card-logo"><img src="https://upload.wikimedia.org/wikipedia/th/thumb/1/11/Ku-logo.png/240px-Ku-logo.png" alt="logo"></div>
+        <span class="type-badge badge-org" data-th="องค์กรนิสิต" data-en="Student Org">องค์กรนิสิต</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">ชมรมอาสาพัฒนา KU Sriracha</div>
+        <div class="card-desc">จัดกิจกรรมจิตอาสาและพัฒนาชุมชน ส่งเสริมจิตสำนึกเพื่อสังคมในหมู่นิสิต</div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-detail" data-th="ดูรายละเอียด" data-en="View Details" on:click={(event) => alert(event.currentTarget.closest('.card')?.querySelector('.card-name')?.textContent ?? "")}>
+          ดูรายละเอียด
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="empty" id="emptyState">
+      <div class="empty-icon">🌿</div>
+      <div class="empty-text" data-th="ไม่พบองค์กรที่ตรงกับคำค้นหา" data-en="No organizations found.">ไม่พบองค์กรที่ตรงกับคำค้นหา</div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button class="pg-btn">‹</button>
+    <button class="pg-btn active">1</button>
+    <button class="pg-btn">2</button>
+    <button class="pg-btn">›</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <span data-th="สร้างโดย" data-en="Created by">สร้างโดย</span>
+    <a href="#">Cyber Geek Club</a>
+    <span data-th="เพื่อ Kasetsart University Sriracha Campus" data-en="for Kasetsart University Sriracha Campus">เพื่อ Kasetsart University Sriracha Campus</span>
+  </p>
+  <p style="margin-top:.3rem">© 2024 Kasetsart University Sriracha Campus. All rights reserved.</p>
+</footer>
+
+<script>
+  /* ─── State ─── */
+  let currentLang   = 'th';
+  let activeFilter  = 'all';
+
+  /* ─── Language ─── */
+  function setLang(lang) {
+    currentLang = lang;
+
+    // toggle button styles
+    document.getElementById('btnTH').classList.toggle('active', lang === 'th');
+    document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+
+    // update all elements with data-th / data-en
+    document.querySelectorAll('[data-th][data-en]').forEach(el => {
+      el.textContent = el.dataset[lang];
+    });
+
+    // update search placeholder
+    const ph = { th: 'ค้นหาชื่อองค์กร หรือประเภท...', en: 'Search organizations or type...' };
+    document.getElementById('searchInput').placeholder = ph[lang];
+
+    // update card names + descs
+    document.querySelectorAll('.card[data-type]').forEach(card => {
+      const nameKey = 'name' + lang.charAt(0).toUpperCase() + lang.slice(1);
+      const descKey = 'desc' + lang.charAt(0).toUpperCase() + lang.slice(1);
+      card.querySelector('.card-name').textContent = card.dataset[nameKey] || '';
+      card.querySelector('.card-desc').textContent = card.dataset[descKey] || '';
+    });
+
+    // update result count label
+    filterCards();
+  }
+
+  /* ─── Filter ─── */
+  function setFilter(btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.f;
+    filterCards();
+  }
+
+  /* ─── Search + Filter ─── */
+  function filterCards() {
+    const q     = document.getElementById('searchInput').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.card[data-type]');
+    let visible = 0;
+
+    cards.forEach(card => {
+      const type    = card.dataset.type;
+      const nameKey = 'name' + currentLang.charAt(0).toUpperCase() + currentLang.slice(1);
+      const name    = (card.dataset[nameKey] || '').toLowerCase();
+      const ok      = (activeFilter === 'all' || type === activeFilter)
+                    && (!q || name.includes(q) || type.includes(q));
+
+      card.style.display = ok ? '' : 'none';
+      if (ok) { visible++; }
+    });
+
+    document.getElementById('emptyState').classList.toggle('show', visible === 0);
+
+    const countEl = document.getElementById('resultCount');
+    if (visible > 0) {
+      const suffix = currentLang === 'th'
+        ? `แสดง <b>${visible}</b> องค์กร`
+        : `Showing <b>${visible}</b> organization${visible !== 1 ? 's' : ''}`;
+      countEl.innerHTML = suffix;
+    } else {
+      countEl.innerHTML = '';
+    }
+  }
+
+  filterCards();
+</script>
+</body>
+</html>

@@ -97,7 +97,10 @@
     "descTh": "ส่งเสริมการออกกำลังกายและการดูแลสุขภาพผ่านกิจกรรมและการฝึกอบรม",
     "descEn": "Promotes exercise and healthy living through activities and training sessions.",
     "banner": "fitness-club-banner.svg",
-    "logo": "fitness-club-logo.svg"
+    "logo": "fitness-club-logo.jpg",
+    "contacts": {
+      "Instagram": "https://www.instagram.com/fitnessclub.kusrc/"
+    }
   },
   {
     "id": 11,
@@ -110,7 +113,7 @@
     "logo": "Cyber-Geek-Club.jpg",
     "contacts": {
       "Instagram": "https://www.instagram.com/cybergeekclub.src/",
-      "Facebook": "https://www.facebook.com/"
+      "Facebook": "https://www.facebook.com/cybergeekclub.kusrc/"
     }
   },
   {

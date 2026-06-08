@@ -1,42 +1,34 @@
-# sv
+# KU SRC Organizations Directory
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A web portal aggregating information on various organizations, clubs, and official news channels within Kasetsart University, Sriracha Campus. 
 
-## Creating a project
+This project is proudly developed and maintained by the **Cyber Geek Club**.
 
-If you're seeing this, you've probably already done this step. Congrats!
+---
 
-```sh
-# create a new project
-npx sv create my-app
-```
+## 🚀 Tech Stack
 
-To recreate this project with the same configuration:
+* **Framework:** [SvelteKit](https://kit.svelte.dev/) (Static Site Generation - SSG)
+* **Language:** [TypeScript](https://www.typescriptlang.org/)
+* **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+* **Deployment & Hosting:** [Vercel](https://vercel.com/)
 
-```sh
-# recreate this project
-npx sv@0.15.4 create --template minimal --types ts --install npm KUSRC-Organize
-```
+---
 
-## Developing
+## 📦 Architecture & Data Management
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+This platform is built as a **Static Website** to ensure optimal performance, speed, and security.
 
-```sh
-npm run dev
+* **Data Source:** All organization details and social links are stored locally within a `.json` file.
+* **Content Updates:** Because this is a purely static site with no backend database, **any data modifications or content updates must be made directly by editing the JSON file in the GitHub repository**. Once changes are pushed, Vercel will automatically trigger a new build and deploy the updated live site.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+---
 
-## Building
+## 🛠️ Getting Started
 
-To create a production version of your app:
+To run this project locally for development, follow these steps:
 
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+1. **Clone the Repository:**
+```bash
+   git clone <YOUR_REPOSITORY_URL>
+   cd <PROJECT_FOLDER_NAME>

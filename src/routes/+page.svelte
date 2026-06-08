@@ -71,7 +71,8 @@
           .map(([label, url]) => ({
             label,
             url,
-            icon: label.toLowerCase().includes('instagram') ? 'ig.png' : label.toLowerCase().includes('facebook') ? 'fb.svg' : null
+            icon: label.toLowerCase().includes('instagram') ? 'ig.png' : label.toLowerCase().includes('facebook') ? 'fb.svg' : null,
+            isFacebook: label.toLowerCase().includes('facebook')
           }))
       : []
   );
@@ -186,7 +187,7 @@
             {#each modalContacts as item}
               <a class="contact-link" href={item.url} target="_blank" rel="noreferrer">
                 {#if item.icon}
-                  <img class="contact-icon" src={logoMap[item.icon]} alt="" />
+                  <img class="contact-icon" class:facebook-icon={item.isFacebook} src={logoMap[item.icon]} alt="" />
                 {/if}
                 <span>{item.label}</span>
               </a>
@@ -201,7 +202,7 @@
 <footer>
   <p>
     <span>{currentLang === 'th' ? 'สร้างโดย' : 'Created by'}</span>
-    <a href="#top">Cyber Geek Club</a>
+    <a href="https://www.instagram.com/cybergeekclub.src/">Cyber Geek Club</a>
     <span>{currentLang === 'th' ? 'เพื่อ Kasetsart University Sriracha Campus' : 'for Kasetsart University Sriracha Campus'}</span>
   </p>
   <p style="margin-top:.3rem">© 2024 Kasetsart University Sriracha Campus. All rights reserved.</p>
@@ -245,7 +246,7 @@
   .result-count { font-size: .82rem; color: #8aad98; font-weight: 500; white-space: nowrap; }
 
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: clamp(1rem, 2.5vw, 1.5rem); padding-bottom: clamp(3rem, 8vw, 5rem); }
-  .card { background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #d0e8d8; box-shadow: 0 1px 3px rgba(10,34,24,.06), 0 4px 16px rgba(10,34,24,.08); display: flex; flex-direction: column; transition: transform .28s cubic-bezier(.34,1.4,.64,1), box-shadow .28s; }
+  .card { background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #d0e8d8; box-shadow: 0 1px 3px rgba(10,34,24,.06), 0 4px 16px rgba(10,34,24,.08); display: flex; flex-direction: column; transition: transform .28s cubic-bezier(.34,1.4,.64,1), box-shadow .28s; border-radius: 16px; }
   .card:hover { transform: translateY(-5px); box-shadow: 0 8px 32px rgba(10,34,24,.16), 0 2px 8px rgba(10,34,24,.08); }
   .card-banner { position: relative; height: 150px; overflow: hidden; background: #133526; }
   .card-banner.no-banner { background: #ffffff; }
@@ -262,7 +263,7 @@
   .card-name { font-size: .97rem; font-weight: 700; color: #0f2d1c; line-height: 1.35; }
   .card-desc { font-size: .81rem; color: #5a8a6a; line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; flex: 1; }
   .card-footer { padding: 1rem 1.2rem 1.2rem; }
-  .btn-detail { display: flex; align-items: center; justify-content: center; gap: .45rem; width: 100%; height: 40px; border-radius: 999px; background: #f4fbf6; border: 1.5px solid #b0d0be; color: #1d5235; font-family: 'Sarabun', sans-serif; font-size: .84rem; font-weight: 700; cursor: pointer; transition: all .2s; }
+  .btn-detail { display: flex; align-items: center; justify-content: center; gap: .45rem; width: 100%; height: 40px; border-radius: 8px; background: #f4fbf6; border: 1.5px solid #b0d0be; color: #1d5235; font-family: 'Sarabun', sans-serif; font-size: .84rem; font-weight: 700; cursor: pointer; transition: all .2s; }
   .btn-detail:hover { background: #1d5235; border-color: #1d5235; color: #fff; }
   .btn-detail svg { width: 14px; height: 14px; stroke: currentColor; flex-shrink: 0; transition: transform .2s; }
   .btn-detail:hover svg { transform: translateX(3px); }
@@ -283,6 +284,7 @@
   .modal-links { display: flex; flex-direction: column; gap: .55rem; }
   .contact-link { display: flex; align-items: center; gap: .75rem; width: 100%; min-height: 54px; padding: .75rem .9rem; border-radius: 16px; background: linear-gradient(135deg, #1d5235 0%, #2d6a47 100%); color: #fff; text-decoration: none; font-size: .95rem; font-weight: 700; box-shadow: 0 10px 18px rgba(29,82,53,.18); }
   .contact-icon { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
+  .contact-icon.facebook-icon { filter: brightness(0) saturate(100%) invert(27%) sepia(98%) saturate(1478%) hue-rotate(179deg) brightness(96%) contrast(101%); }
 
   @media (max-width: 900px) {
     .toolbar { align-items: flex-start; }

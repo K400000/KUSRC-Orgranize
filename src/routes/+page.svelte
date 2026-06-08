@@ -129,8 +129,10 @@
   <div class="grid">
     {#each filteredOrganizations as org}
       <article class="card">
-        <div class="card-banner">
-          <img class="banner-img" src={bannerMap[org.banner]} alt="" onerror={(event) => { (event.currentTarget as HTMLImageElement).style.display = 'none'; }} />
+        <div class="card-banner" class:no-banner={!org.banner || !bannerMap[org.banner]}>
+          {#if org.banner && bannerMap[org.banner]}
+            <img class="banner-img" src={bannerMap[org.banner]} alt="" onerror={(event) => { (event.currentTarget as HTMLImageElement).style.display = 'none'; }} />
+          {/if}
           <div class="banner-scrim"></div>
           <div class="card-logo"><img src={logoMap[org.logo]} alt={org.nameTh} /></div>
           <span class:badge-org={org.type === 'องค์กรนิสิต'} class:badge-assoc={org.type === 'สโมสร'} class:badge-club={org.type === 'ชมรม'} class="type-badge">{org.type}</span>
@@ -246,6 +248,7 @@
   .card { background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #d0e8d8; box-shadow: 0 1px 3px rgba(10,34,24,.06), 0 4px 16px rgba(10,34,24,.08); display: flex; flex-direction: column; transition: transform .28s cubic-bezier(.34,1.4,.64,1), box-shadow .28s; }
   .card:hover { transform: translateY(-5px); box-shadow: 0 8px 32px rgba(10,34,24,.16), 0 2px 8px rgba(10,34,24,.08); }
   .card-banner { position: relative; height: 150px; overflow: hidden; background: #133526; }
+  .card-banner.no-banner { background: #ffffff; }
   .card-banner img.banner-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
   .card:hover .banner-img { transform: scale(1.05); }
   .banner-scrim { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,34,24,0) 50%, rgba(10,34,24,.55) 100%); }

@@ -2,7 +2,7 @@
 
 A web portal aggregating information on various organizations, clubs, and official news channels within Kasetsart University, Sriracha Campus. 
 
-This project is proudly developed and maintained by the **Cyber Geek Club**.
+This project is proudly developed and maintained by the [**Cyber Geek Club**.](https://www.instagram.com/cybergeekclub.src/)
 
 ---
 

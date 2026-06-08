@@ -85,7 +85,7 @@
 
 <nav>
   <a class="nav-brand" href="#top">
-    <img class="nav-logo-img" src="https://admissions.src.ku.ac.th/assets/img/faviconx.png" alt="KU Logo" onerror={() => {}} />
+    <img class="nav-logo-img" src="https://admissions.src.ku.ac.th/assets/img/faviconx.png" alt="Kasetsart University Logo" onerror={() => {}} />
     <div class="nav-text-group">
       <b class="nav-university">Kasetsart University</b>
       <small class="nav-campus">Sriracha Campus</small>

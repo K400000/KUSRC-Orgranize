@@ -4,6 +4,8 @@ A web portal aggregating information on various organizations, clubs, and offici
 
 This project is proudly developed and maintained by the [**Cyber Geek Club**.](https://www.instagram.com/cybergeekclub.src/)
 
+[CLICK TO WEBSITE](https://kusrc-organize.vercel.app/)
+
 ---
 
 ## 🚀 Tech Stack
